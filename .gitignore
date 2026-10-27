@@ -41,3 +41,7 @@ app-example
 # generated native folders
 /ios
 /android
+
+.vscode
+AGENTS.md 
+eslint.config.js 
