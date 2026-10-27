@@ -42,6 +42,7 @@ app-example
 /ios
 /android
 
-vscode/
+.vscode/
 AGENTS.md 
-eslint.config.js 
+eslint.config.js
+
