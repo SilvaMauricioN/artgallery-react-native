@@ -46,3 +46,4 @@ app-example
 AGENTS.md 
 eslint.config.js
 
+.env
