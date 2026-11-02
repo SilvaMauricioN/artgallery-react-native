@@ -6,7 +6,7 @@ import { PaperProvider } from 'react-native-paper';
 
 import { darkTheme, lightTheme } from '../constants/theme';
 import { ThemeModeProvider, useAppTheme, useThemeMode } from '../context/ThemeContext';
-import { UserProvider, useUser } from '../context/UserContext';
+import { SessionProvider, useSession } from '../context/UserContext';
 
 // Mantiene el splash visible hasta saber si ya existe un nombre guardado
 SplashScreen.preventAutoHideAsync();
@@ -15,16 +15,17 @@ SplashScreen.preventAutoHideAsync();
 function ThemedStack() {
   const theme = useAppTheme();
   const { isDark } = useThemeMode();
-  const { name, loaded } = useUser();
+  const { user, isReady } = useSession();
+  // const { name, loaded } = useUser();
 
   useEffect(() => {
-    if (loaded) SplashScreen.hideAsync();
-  }, [loaded]);
+    if (isReady) SplashScreen.hideAsync();
+  }, [isReady]);
 
   // Hasta leer AsyncStorage no se sabe qué pantalla mostrar
-  if (!loaded) return null;
+  if (!isReady) return null;
 
-  const hasName = !!name;
+  const hasName = !!user;
 
   return (
     <>
@@ -45,7 +46,7 @@ function ThemedStack() {
 
         {/* Con nombre guardado: se ve el resto de la app */}
         <Stack.Protected guard={hasName}>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
           <Stack.Screen name="user/[id]" options={{ title: 'Detalle', headerBackTitle: 'Atrás' }} />
         </Stack.Protected>
       </Stack>
@@ -59,9 +60,9 @@ function PaperShell() {
 
   return (
     <PaperProvider theme={isDark ? darkTheme : lightTheme}>
-      <UserProvider>
+      <SessionProvider>
         <ThemedStack />
-      </UserProvider>
+      </SessionProvider>
     </PaperProvider>
   );
 }

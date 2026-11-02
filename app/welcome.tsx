@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { UserAvatar } from '../components/UserAvatar';
 import { spacing } from '../constants/theme';
 import { useAppTheme } from '../context/ThemeContext';
-import { useUser } from '../context/UserContext';
+import { useSession } from '../context/UserContext';
 import { NAME_MAX, validateName } from '../utils/validation';
 
 /**
@@ -15,15 +15,27 @@ import { NAME_MAX, validateName } from '../utils/validation';
  */
 export default function Welcome() {
   const theme = useAppTheme();
-  const { setName } = useUser();
+  const { login } = useSession();
   const [value, setValue] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
 
   const handleChange = useCallback((text: string) => {
     setValue(text);
-    setError(null); // limpia el error apenas el usuario vuelve a escribir
+    setError(null); 
   }, []);
+
+  
+  // const handleLogin = () => {
+  //     if (!value.trim()) {
+  //       setError("Escribí tu nombre para entrar");
+  //       return;
+  //     }
+  //     setError("");
+  //     // Al cambiar la sesión, el Stack.Protected del _layout nos lleva solo a la app.
+  //     login(value);
+  //   };
+
 
   const submit = useCallback(async () => {
     const validationError = validateName(value);
@@ -32,8 +44,8 @@ export default function Welcome() {
       return;
     }
     setSaving(true);
-    await setName(value); // guarda en AsyncStorage y actualiza el contexto
-  }, [value, setName]);
+    await login(value); // guarda en AsyncStorage y actualiza el contexto
+  }, [value, login]);
 
   const hasText = value.trim().length > 0;
 

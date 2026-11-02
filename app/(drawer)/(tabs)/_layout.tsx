@@ -2,7 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
 import React from 'react';
 
-import { useAppTheme } from '../../context/ThemeContext';
+import { useAppTheme } from '../../../context/ThemeContext';
 
 type IconName = React.ComponentProps<typeof Ionicons>['name'];
 
@@ -32,7 +32,7 @@ export default function TabsLayout() {
     >
       <Tabs.Screen
         name="index"
-        options={{ title: 'Usuarios', tabBarIcon: icon('people', 'people-outline') }}
+        options={{ title: 'Home', tabBarIcon: icon('home', 'home-outline') }}
       />
       <Tabs.Screen
         name="new-user"
