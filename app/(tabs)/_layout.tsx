@@ -1,34 +1,46 @@
+import { Ionicons } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
 import React from 'react';
 
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { useAppTheme } from '../../context/ThemeContext';
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+type IconName = React.ComponentProps<typeof Ionicons>['name'];
+
+const icon =
+  (active: IconName, inactive: IconName) =>
+  ({ color, size, focused }: { color: string; size: number; focused: boolean }) =>
+    <Ionicons name={focused ? active : inactive} size={size} color={color} />;
+
+export default function TabsLayout() {
+  const theme = useAppTheme();
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
+        tabBarActiveTintColor: theme.colors.primary,
+        tabBarInactiveTintColor: theme.colors.onSurfaceVariant,
+        tabBarLabelStyle: { fontSize: 11, fontWeight: '600' },
+        tabBarStyle: {
+          backgroundColor: theme.colors.surface,
+          borderTopColor: theme.colors.outlineVariant,
+          borderTopWidth: 1,
+          elevation: 0,
+          shadowOpacity: 0,
+        },
+      }}
+    >
       <Tabs.Screen
         name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
-        }}
+        options={{ title: 'Usuarios', tabBarIcon: icon('people', 'people-outline') }}
       />
       <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
+        name="new-user"
+        options={{ title: 'Nuevo usuario', tabBarIcon: icon('person-add', 'person-add-outline') }}
+      />
+      <Tabs.Screen
+        name="new-post"
+        options={{ title: 'Nuevo post', tabBarIcon: icon('create', 'create-outline') }}
       />
     </Tabs>
   );

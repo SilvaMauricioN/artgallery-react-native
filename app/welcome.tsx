@@ -1,12 +1,12 @@
-import { UserAvatar } from '@/components/UserAvatar';
-import { useUser } from '@/context/UserContext';
-import { spacing } from '@/theme/theme';
-import { useAppTheme } from '@/theme/useAppTheme';
-import { NAME_MAX, validateName } from '@/utils/validation';
 import { useCallback, useState } from 'react';
 import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, View } from 'react-native';
 import { Avatar, Button, HelperText, Text, TextInput } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { UserAvatar } from '../components/UserAvatar';
+import { spacing } from '../constants/theme';
+import { useAppTheme } from '../context/ThemeContext';
+import { useUser } from '../context/UserContext';
+import { NAME_MAX, validateName } from '../utils/validation';
 
 /**
  * Primera pantalla de la app: solo pide el nombre del usuario.
