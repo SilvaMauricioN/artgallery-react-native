@@ -15,12 +15,11 @@ Los datos provienen de la [Art Search API](https://artsearch.io/). El usuario in
 5. [Instalación y ejecución](#instalación-y-ejecución)
 6. [Configuración de la API](#configuración-de-la-api)
 7. [Variables de entorno (.env)](#variables-de-entorno-env)
-8. [Estructura del proyecto](#estructura-del-proyecto)
-9. [Navegación](#navegación)
-10. [Pantallas](#pantallas)
-11. [Consumo de la API: hooks personalizados](#consumo-de-la-api-hooks-personalizados)
-12. [Persistencia con AsyncStorage](#persistencia-con-asyncstorage)
-13. [Theming y estilos reutilizables](#theming-y-estilos-reutilizables)
+8. [Navegación](#navegación)
+9. [Pantallas](#pantallas)
+10. [Consumo de la API: hooks personalizados](#consumo-de-la-api-hooks-personalizados)
+11. [Persistencia con AsyncStorage](#persistencia-con-asyncstorage)
+12. [Theming y estilos reutilizables](#theming-y-estilos-reutilizables)
 
 ---
 
@@ -208,67 +207,6 @@ Reglas a tener en cuenta:
 
 ---
 
-## Estructura del proyecto
-
-```
-art-gallery/
-├── app/                              # Pantallas y rutas (Expo Router)
-│   ├── _layout.tsx                   # Layout raíz: providers, tema y protección de rutas
-│   ├── welcome.tsx                   # Pantalla de bienvenida (pide el nombre)
-│   ├── artwork/
-│   │   └── [id].tsx                  # Detalle de una obra (pantalla de Stack)
-│   └── (drawer)/
-│       ├── _layout.tsx               # Menú lateral (Drawer)
-│       ├── profile.tsx               # Perfil del usuario
-│       └── (tabs)/
-│           ├── _layout.tsx           # Barra de pestañas (Tabs)
-│           ├── index.tsx             # Inicio (obra aleatoria)
-│           ├── explore.tsx           # Explorar (búsqueda, filtros, paginación)
-│           └── favorite.tsx          # Favoritos
-│
-├── components/                       # Componentes reutilizables
-│   ├── ArtworkCard.tsx               # Tarjeta de obra con corazón de favorito
-│   ├── FilterChips.tsx               # Fila de chips de filtro
-│   ├── StatusMessage.tsx             # Mensajes de error y listas vacías
-│   ├── DrawerContent.tsx             # Contenido del menú lateral
-│   ├── UserHeader.tsx                # Avatar y nombre en el header
-│   └── UserAvatar.tsx                # Avatar con iniciales
-│
-├── constants/
-│   ├── theme.ts                      # Paletas clara y oscura, tipo AppTheme y spacing
-│   └── filters.ts                    # Opciones de los chips de filtro
-│
-├── context/
-│   ├── ThemeContext.tsx              # Modo claro/oscuro y hook useAppTheme
-│   ├── UserContext.tsx               # Sesión del usuario (SessionProvider)
-│   └── FavoritesContext.tsx          # Obras favoritas
-│
-├── hooks/
-│   ├── useGetRandomArtwork.ts        # GET /artworks/random
-│   ├── useGetArtworks.ts             # GET /artworks (búsqueda y paginación)
-│   └── useGetArtwork.ts              # GET /artworks/{id}
-│
-├── shared/
-│   └── useStoredState.ts             # useState que se guarda en AsyncStorage
-│
-├── types/
-│   └── artwork.ts                    # Tipos: ArtworkSummary, ArtworkDetail, SearchArtworksResponse
-│
-├── utils/
-│   ├── format.ts                     # formatLabel y formatYears
-│   └── validation.ts                 # Validación del nombre
-│
-├── docs/screenshots/                 # Capturas de pantalla del README
-├── assets/                           # Íconos e imágenes de la app
-├── .env.example                      # Plantilla de variables de entorno
-├── app.json                          # Configuración de Expo
-├── eas.json                          # Configuración de EAS Build (APK)
-├── tsconfig.json                     # Configuración de TypeScript y alias "@/"
-└── package.json
-```
-
----
-
 ## Navegación
 
 La app combina los tres tipos de navegación con **Expo Router**:
@@ -358,4 +296,4 @@ Los favoritos guardan solo los datos simples de la obra. Al abrir Favoritos no h
 
 ---
 
-**Autor:** [Silva Mauricio Nicolás R.] 
+**Autor:** Silva Mauricio Nicolás R. 
