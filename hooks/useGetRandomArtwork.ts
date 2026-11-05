@@ -30,7 +30,6 @@ export default function useGetRandomArtwork(): UseRandomArtworkResult {
         throw new Error(`Error del servidor: ${response.status}`);
       }
       const json: Artwork = await response.json();
-      console.log("artwork: ", json)
       setData(json);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'No se pudo cargar la obra');
