@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { PaperProvider } from 'react-native-paper';
 
+import { FavoritesProvider } from '@/context/FavoritesContext';
 import { darkTheme, lightTheme } from '../constants/theme';
 import { ThemeModeProvider, useAppTheme, useThemeMode } from '../context/ThemeContext';
 import { SessionProvider, useSession } from '../context/UserContext';
@@ -16,7 +17,6 @@ function ThemedStack() {
   const theme = useAppTheme();
   const { isDark } = useThemeMode();
   const { user, isReady } = useSession();
-  // const { name, loaded } = useUser();
 
   useEffect(() => {
     if (isReady) SplashScreen.hideAsync();
@@ -47,7 +47,7 @@ function ThemedStack() {
         {/* Con nombre guardado: se ve el resto de la app */}
         <Stack.Protected guard={hasName}>
           <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
-          <Stack.Screen name="user/[id]" options={{ title: 'Detalle', headerBackTitle: 'Atrás' }} />
+          <Stack.Screen name="artwork/[id]" options={{ title: 'Details', headerBackTitle: 'Back' }} />
         </Stack.Protected>
       </Stack>
     </>
@@ -61,7 +61,9 @@ function PaperShell() {
   return (
     <PaperProvider theme={isDark ? darkTheme : lightTheme}>
       <SessionProvider>
-        <ThemedStack />
+        <FavoritesProvider>
+          <ThemedStack />
+        </FavoritesProvider>        
       </SessionProvider>
     </PaperProvider>
   );
