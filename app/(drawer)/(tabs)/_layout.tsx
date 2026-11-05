@@ -35,12 +35,12 @@ export default function TabsLayout() {
         options={{ title: 'Home', tabBarIcon: icon('home', 'home-outline') }}
       />
       <Tabs.Screen
-        name="new-user"
-        options={{ title: 'Nuevo usuario', tabBarIcon: icon('person-add', 'person-add-outline') }}
+        name="explore"
+        options={{ title: 'Explore', tabBarIcon: icon('compass', 'compass-outline') }}
       />
       <Tabs.Screen
-        name="new-post"
-        options={{ title: 'Nuevo post', tabBarIcon: icon('create', 'create-outline') }}
+        name="favorites"
+        options={{ title: 'Favorites', tabBarIcon: icon('heart', 'heart-outline') }}
       />
     </Tabs>
   );
