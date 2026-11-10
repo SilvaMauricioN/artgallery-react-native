@@ -24,7 +24,7 @@ export default function DrawerContent(props: DrawerContentComponentProps) {
             {user}
           </Text>
           <Text variant="bodySmall" style={{ color: theme.colors.onSurfaceVariant }}>
-            ArtSearch
+            Art Gallery
           </Text>
         </View>
       </View>

@@ -25,18 +25,6 @@ export default function Welcome() {
     setError(null); 
   }, []);
 
-  
-  // const handleLogin = () => {
-  //     if (!value.trim()) {
-  //       setError("Escribí tu nombre para entrar");
-  //       return;
-  //     }
-  //     setError("");
-  //     // Al cambiar la sesión, el Stack.Protected del _layout nos lleva solo a la app.
-  //     login(value);
-  //   };
-
-
   const submit = useCallback(async () => {
     const validationError = validateName(value);
     if (validationError) {
@@ -66,18 +54,18 @@ export default function Welcome() {
               />
             )}
             <Text variant="headlineMedium" style={styles.title}>
-              ArtSearch
+              Art Gallery
             </Text>
             <Text variant="bodyMedium" style={{ color: theme.colors.onSurfaceVariant, textAlign: 'center' }}>
-              Descubrí obras de arte de todo el mundo
+              I discovered works of art from around the world
             </Text>
           </View>
 
           <View>
             <TextInput
               mode="outlined"
-              label="¿Cómo te llamás?"
-              placeholder="Tu nombre"
+              label="What's your name?"
+              placeholder="Your name"
               value={value}
               onChangeText={handleChange}
               error={!!error}
@@ -93,7 +81,7 @@ export default function Welcome() {
           </View>
 
           <Button mode="contained" onPress={submit} loading={saving} disabled={saving} contentStyle={styles.buttonContent}>
-            Comenzar
+            Get Started
           </Button>
         </ScrollView>
       </KeyboardAvoidingView>

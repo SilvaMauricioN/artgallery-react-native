@@ -11,7 +11,7 @@ export default function ThemeToggle(): React.JSX.Element {
       mode="contained-tonal"
       size={20}
       onPress={toggleTheme}
-      accessibilityLabel={isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
+      accessibilityLabel={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
     />
   );
 }

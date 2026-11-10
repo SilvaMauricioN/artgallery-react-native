@@ -53,7 +53,7 @@ export default function Home() {
       </View>
 
       <Button mode="contained-tonal" icon="refresh" onPress={refetch} loading={loading} disabled={loading}>
-        {error ? 'Reintentar' : 'Sorprendeme'}
+        {error ? 'Retry' : 'Surprise me'}
       </Button>
 
       {/* Imagen de la obra (mientras carga la primera, muestra un recuadro con spinner) */}
@@ -62,7 +62,7 @@ export default function Home() {
           <Pressable
             style={styles.image}
             accessibilityRole="imagebutton"
-            accessibilityLabel="Ver imagen en pantalla completa"
+            accessibilityLabel="View image in full screen"
             onPress={() => setFullscreen(true)}
           >
             <Image source={{ uri: data.image }} style={styles.image} resizeMode="cover" />

@@ -38,9 +38,9 @@ export default function Profile() {
   };
 
   const confirmLogout = () =>
-    Alert.alert('Cerrar sesión', '¿Querés salir? Vas a volver a la pantalla de bienvenida.', [
-      { text: 'Cancelar', style: 'cancel' },
-      { text: 'Cerrar sesión', style: 'destructive', onPress: logout },
+    Alert.alert('Log out', 'Do you want to exit? You will return to the welcome screen.', [
+      { text: 'Cancel', style: 'cancel' },
+      { text: 'Log out', style: 'destructive', onPress: logout },
     ]);
 
   return (
@@ -57,12 +57,12 @@ export default function Profile() {
         {/* Cuenta */}
         <Animated.View entering={enter(1)} style={styles.section}>
           <Text variant="labelLarge" style={{ color: theme.colors.primary }}>
-            Cuenta
+            Account
           </Text>
           <View>
             <TextInput
               mode="outlined"
-              label="Nombre"
+              label="Name"
               value={value}
               maxLength={NAME_MAX}
               error={!!error}
@@ -78,18 +78,18 @@ export default function Profile() {
             </HelperText>
           </View>
           <Button mode="contained" onPress={save} disabled={unchanged}>
-            Guardar cambios
+            Save changes
           </Button>
         </Animated.View>
 
         {/* Preferencias */}
         <Animated.View entering={enter(2)} style={styles.section}>
           <Text variant="labelLarge" style={{ color: theme.colors.primary }}>
-            Preferencias
+            Preferences
           </Text>
           <List.Item
-            title="Modo oscuro"
-            description={isDark ? 'Activado' : 'Desactivado'}
+            title="Dark mode"
+            description={isDark ? 'Activated' : 'Disabled'}
             left={(props) => <List.Icon {...props} icon="theme-light-dark" />}
             right={() => <Switch value={isDark} onValueChange={toggleTheme} />}
             onPress={toggleTheme}
@@ -100,17 +100,17 @@ export default function Profile() {
         {/* Aplicación */}
         <Animated.View entering={enter(3)} style={styles.section}>
           <Text variant="labelLarge" style={{ color: theme.colors.primary }}>
-            Aplicación
+            Application
           </Text>
           <List.Item
-            title="Versión"
+            title="Version"
             description={Constants.expoConfig?.version ?? '1.0.0'}
             left={(props) => <List.Icon {...props} icon="information-outline" />}
             style={styles.item}
           />
           <List.Item
-            title="Tus datos"
-            description="Tu nombre y tus preferencias se guardan solo en este dispositivo."
+            title="Your Information"
+            description="Your name and preferences are saved only on this device."
             descriptionNumberOfLines={3}
             left={(props) => <List.Icon {...props} icon="cellphone-lock" />}
             style={styles.item}
@@ -126,13 +126,13 @@ export default function Profile() {
             style={{ borderColor: theme.colors.error }}
             onPress={confirmLogout}
           >
-            Cerrar sesión
+            Log Out
           </Button>
         </Animated.View>
       </ScrollView>
 
       <Snackbar visible={saved} onDismiss={() => setSaved(false)} duration={2000}>
-        Nombre actualizado
+        Updated Name
       </Snackbar>
     </View>
   );

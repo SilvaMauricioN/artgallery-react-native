@@ -31,7 +31,7 @@ export default function DrawerLayout() {
       <Drawer.Screen
         name="(tabs)"
         options={{
-          title: 'ArtSearch',
+          title: 'Art Gallery',
           drawerLabel: 'Home',
           headerRight: () => <UserHeader />,
           drawerIcon: ({ color, size }: IconProps) => (

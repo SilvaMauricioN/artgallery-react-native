@@ -44,21 +44,21 @@ Los datos provienen de la [Art Search API](https://artsearch.io/). El usuario in
 
 | Bienvenida | Inicio | Menú lateral |
 |:---:|:---:|:---:|
-| <img src="docs/screenshots/01-welcome.png" width="220" alt="Pantalla de bienvenida" /> | <img src="docs/screenshots/02-home.png" width="220" alt="Pantalla de inicio" /> | <img src="docs/screenshots/03-drawer.png" width="220" alt="Menú lateral" /> |
+| <img src="docs/screenshots/01-welcome.jpeg" width="220" alt="Pantalla de bienvenida" /> | <img src="docs/screenshots/02-home.jpeg" width="220" alt="Pantalla de inicio" /> | <img src="docs/screenshots/03-drawer.jpeg" width="220" alt="Menú lateral" /> |
 
 | Explorar | Detalle de obra | Favoritos |
 |:---:|:---:|:---:|
-| <img src="docs/screenshots/04-explore.png" width="220" alt="Pantalla Explorar" /> | <img src="docs/screenshots/05-detail.png" width="220" alt="Detalle de obra" /> | <img src="docs/screenshots/06-favorites.png" width="220" alt="Pantalla Favoritos" /> |
+| <img src="docs/screenshots/04-explore.jpeg" width="220" alt="Pantalla Explorar" /> | <img src="docs/screenshots/05-detail.jpeg" width="220" alt="Detalle de obra" /> | <img src="docs/screenshots/06-favorites.jpeg" width="220" alt="Pantalla Favoritos" /> |
 
 | Perfil |
 |:---:|
-| <img src="docs/screenshots/07-profile.png" width="220" alt="Pantalla de perfil" /> |
+| <img src="docs/screenshots/07-profile.jpeg" width="220" alt="Pantalla de perfil" /> |
 
 ### Modo oscuro
 
 | Inicio | Explorar | Detalle de obra |
 |:---:|:---:|:---:|
-| <img src="docs/screenshots/08-home-dark.png" width="220" alt="Inicio en modo oscuro" /> | <img src="docs/screenshots/09-explore-dark.png" width="220" alt="Explorar en modo oscuro" /> | <img src="docs/screenshots/10-detail-dark.png" width="220" alt="Detalle en modo oscuro" /> |
+| <img src="docs/screenshots/08-home-dark.jpeg" width="220" alt="Inicio en modo oscuro" /> | <img src="docs/screenshots/09-explore-dark.jpeg" width="220" alt="Explorar en modo oscuro" /> | <img src="docs/screenshots/10-detail-dark.jpeg" width="220" alt="Detalle en modo oscuro" /> |
 
 ---
 
