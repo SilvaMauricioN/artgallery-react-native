@@ -47,3 +47,4 @@ AGENTS.md
 eslint.config.js
 
 .env
+*.log
